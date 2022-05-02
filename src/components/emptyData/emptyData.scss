@@ -1,0 +1,16 @@
+.sjtct__empty-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    flex-direction: column;
+    img {
+        width: 20%;
+    }
+    p {
+        font-weight: 500;
+        margin-top: 20px;
+        color: var(--main-color);
+        font-size: 20px;
+    }
+}

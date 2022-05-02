@@ -1,0 +1,35 @@
+.sjtct__display-books {
+    .sjtct__display-books--title {
+        font-size: 20px;
+    }
+    .sjtct__display-books--button-see-more {
+        background: var(--second-color);
+        color: white;
+        font-size: 13px;
+        padding: 3px 15px;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sjtct__display-books {
+        .sjtct__display-books--title {
+            font-size: 15px;    
+        }
+        .sjtct__display-books--button-see-more {
+            font-size: 11px;
+            padding: 2px 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sjtct__display-books {
+        .sjtct__display-books--title {
+            font-size: 13px;    
+        }
+        .sjtct__display-books--button-see-more {
+            font-size: 8px;
+        }
+    }
+}

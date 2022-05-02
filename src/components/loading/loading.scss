@@ -1,0 +1,10 @@
+.sjtct__loading {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+        color: var(--main-color);
+        font-size: 30px;
+    }
+}

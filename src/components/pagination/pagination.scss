@@ -1,0 +1,50 @@
+.sjtct__pagination {
+    margin: 20px 0;
+    .sjtct__pagination-items {
+        display: flex;
+        .sjtct__pagination-items--item {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid var(--second-color);
+            background: var(--main-color);
+            color: white;
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+
+            &.is-active {
+                border: 1px solid var(--main-color);
+                background: var(--second-color);
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sjtct__pagination {
+        margin: 15px 0;
+        .sjtct__pagination-items {
+            .sjtct__pagination-items--item {
+                width: 25px;
+                height: 25px;
+                line-height: 15px;
+                font-size: 12px;
+                &:not(:first-child) {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}

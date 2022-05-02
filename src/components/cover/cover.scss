@@ -1,0 +1,41 @@
+.sjtct__cover {
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 80px;
+    .sjtct__cover--title {
+        font-size: 50px;
+        font-weight: 600;
+        color: var(--main-color);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sjtct__cover {
+        height: 300px;
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sjtct__cover {
+        height: 220px;
+        padding: 0 20px;
+        .sjtct__cover--title {
+            font-size: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .sjtct__cover {
+        height: 200px;
+        padding: 0 15px;
+        .sjtct__cover--title {
+            font-size: 23px;
+        }
+    }
+}
