@@ -51,18 +51,23 @@ export const getBook = ({ category_id, book_id }) => {
     }
 }
 
-export const setBooksByCategoryId = ({ category_id, page }) => {
+export const setBooksByCategoryId = ({ category_id, page, queryTitle = null}) => {
     return async (dispatch, getState) => {
         try {
             dispatch({
                 type: 'loading/setLoading',
                 payload: true
             })
-            const size = 24
-            const fetchBooksByCategory = await fetch(`https://asia-southeast2-sejutacita-app.cloudfunctions.net/fee-assessment-books?categoryId=${category_id}&size=${size}&page=${page}`, {
+            const url = `https://asia-southeast2-sejutacita-app.cloudfunctions.net/fee-assessment-books?categoryId=${category_id}`
+            const fetchBooksByCategory = await fetch(url, {
                 method: 'GET',
             })
-            const books = await fetchBooksByCategory.json()
+            let books = await fetchBooksByCategory.json()
+
+            if (queryTitle) {
+                books = books.filter(item => item.title.toLowerCase().includes(queryTitle))
+            }
+
             dispatch({
                 type: 'books/setBooks',
                 payload: books
