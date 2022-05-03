@@ -56,8 +56,6 @@ function Categories() {
     return { formatBooks, totalPage: Math.ceil(books.length / limit) }
   }
 
-  if (bookLoading) return <LoadingComponent />
-
   return (
     <div className="sjtct__categories section__padding"
     >
@@ -71,36 +69,38 @@ function Categories() {
           <i className="fas fa-search"></i>
         </button>
       </form>
-      {formatBooks().formatBooks.length > 0 ? 
-      (
-        <>
-          <div className="sjtct__categories-items
-            grid
-            sm:grid-cols-3
-            sm:gap-2
-            md:grid-cols-4
-            md:gap-3
-            lg:grid-cols-6
-            lg:gap-4"
-          >
-            {
-              formatBooks().formatBooks.map(book => {
-                return (
-                  <Book key={book.id}
-                    id={book.id}
-                    category_id={book.category_id}
-                    title={book.title}
-                    cover={book.cover_url}
-                    desc={book.description}
-                  />
-                )
-              })
-            }
-          </div>
-          {formatBooks().totalPage > 1 && (<Pagination total={formatBooks().totalPage} page={page} />)}
-        </>
-      )
-      : (<EmptyData />)}
+      {
+        bookLoading ? <LoadingComponent />
+        : formatBooks().formatBooks.length > 0 ? (
+          <>
+            <div className="sjtct__categories-items
+              grid
+              sm:grid-cols-3
+              sm:gap-2
+              md:grid-cols-4
+              md:gap-3
+              lg:grid-cols-6
+              lg:gap-4"
+            >
+              {
+                formatBooks().formatBooks.map(book => {
+                  return (
+                    <Book key={book.id}
+                      id={book.id}
+                      category_id={book.category_id}
+                      title={book.title}
+                      cover={book.cover_url}
+                      desc={book.description}
+                    />
+                  )
+                })
+              }
+            </div>
+            {formatBooks().totalPage > 1 && (<Pagination total={formatBooks().totalPage} page={page} />)}
+          </>
+        )
+        : (<EmptyData />)
+      }
     </div>
   )
 }
